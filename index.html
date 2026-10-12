@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <title>Pixel Solitaire</title>
+  <meta name="description" content="Pixel-art solitaire with four games: classic Klondike, Countries, Games, and TV & Movies.">
+  <meta name="theme-color" content="#15131f">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main id="app">
+
+  <!-- HOME -->
+  <section id="screen-home" class="screen active" aria-labelledby="title">
+    <div class="home-inner">
+      <header class="hero">
+        <div class="hero-cards" id="hero-cards" aria-hidden="true"></div>
+        <h1 id="title">Pixel<br>Solitaire</h1>
+        <p class="tagline">Four ways to play patience.</p>
+      </header>
+
+      <div class="modes">
+        <article class="mode" data-mode="classic">
+          <div class="mode-preview" data-preview="classic" aria-hidden="true"></div>
+          <div class="mode-body">
+            <h2>Classic</h2>
+            <p>Klondike. Build each suit from Ace to King.</p>
+            <div class="chips" data-opt="draw" aria-label="Cards per draw">
+              <button data-v="1">Draw 1</button><button data-v="3">Draw 3</button>
+            </div>
+            <div class="mode-actions">
+              <button class="btn primary" data-play>Play</button>
+              <button class="btn" data-continue hidden>Continue</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="mode" data-mode="geo">
+          <div class="mode-preview" data-preview="geo" aria-hidden="true"></div>
+          <div class="mode-body">
+            <h2>Countries</h2>
+            <p>Sort every country under its continent.</p>
+            <div class="chips" data-opt="diff" aria-label="Difficulty">
+              <button data-v="easy">Easy</button><button data-v="normal">Normal</button><button data-v="hard">Hard</button>
+            </div>
+            <div class="mode-actions">
+              <button class="btn primary" data-play>Play</button>
+              <button class="btn" data-continue hidden>Continue</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="mode" data-mode="games">
+          <div class="mode-preview" data-preview="games" aria-hidden="true"></div>
+          <div class="mode-body">
+            <h2>Games</h2>
+            <p>Match characters to their video game.</p>
+            <div class="chips" data-opt="diff" aria-label="Difficulty">
+              <button data-v="easy">Easy</button><button data-v="normal">Normal</button><button data-v="hard">Hard</button>
+            </div>
+            <div class="mode-actions">
+              <button class="btn primary" data-play>Play</button>
+              <button class="btn" data-continue hidden>Continue</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="mode" data-mode="screen">
+          <div class="mode-preview" data-preview="screen" aria-hidden="true"></div>
+          <div class="mode-body">
+            <h2>TV &amp; Movies</h2>
+            <p>Match characters to their TV show or movie.</p>
+            <div class="chips" data-opt="diff" aria-label="Difficulty">
+              <button data-v="easy">Easy</button><button data-v="normal">Normal</button><button data-v="hard">Hard</button>
+            </div>
+            <div class="chips" data-opt="pack" aria-label="Card pack">
+              <button data-v="mix">Both</button><button data-v="tv">TV</button><button data-v="movie">Movies</button>
+            </div>
+            <div class="mode-actions">
+              <button class="btn primary" data-play>Play</button>
+              <button class="btn" data-continue hidden>Continue</button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <nav class="home-foot" aria-label="More">
+        <button class="btn small" data-open="help"><span data-icon="help"></span>How to play</button>
+        <button class="btn small" data-open="stats"><span data-icon="chart"></span>Stats</button>
+        <button class="btn small" data-open="settings"><span data-icon="gear"></span>Settings</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- GAME -->
+  <section id="screen-game" class="screen" aria-label="Game">
+    <header class="hud">
+      <button class="icon-btn" id="btn-menu" aria-label="Back to menu"><span data-icon="back"></span></button>
+      <div class="hud-title">
+        <span id="hud-mode">Classic</span>
+        <small id="hud-sub">Draw 1</small>
+      </div>
+      <div class="hud-stats" id="hud-stats" aria-live="polite"></div>
+      <button class="icon-btn" data-open="settings" aria-label="Settings"><span data-icon="gear"></span></button>
+    </header>
+
+    <div id="board" class="board"></div>
+
+    <footer class="toolbar">
+      <button class="tool" id="btn-new"><span data-icon="plus"></span>New</button>
+      <button class="tool" id="btn-undo"><span data-icon="undo"></span>Undo</button>
+      <button class="tool" id="btn-hint"><span data-icon="hint"></span>Hint</button>
+      <button class="tool" id="btn-auto" hidden><span data-icon="bolt"></span>Auto</button>
+    </footer>
+  </section>
+
+  <div id="modal" class="modal" hidden>
+    <div class="window" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <h2 id="modal-title"></h2>
+      <div id="modal-body" class="window-body"></div>
+      <div id="modal-actions" class="window-actions"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <canvas id="fx-trail" class="fx" aria-hidden="true"></canvas>
+  <canvas id="fx-spark" class="fx" aria-hidden="true"></canvas>
+</main>
+
+<script src="js/util.js"></script>
+<script src="js/pixel.js"></script>
+<script src="js/data/geo.js"></script>
+<script src="js/data/fandom.js"></script>
+<script src="js/klondike.js"></script>
+<script src="js/category.js"></script>
+<script src="js/board.js"></script>
+<script src="js/fx.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
