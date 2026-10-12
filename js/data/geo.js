@@ -15,7 +15,7 @@
         'Finland', 'Iceland', 'Ukraine', 'Hungary', 'Croatia', 'Czechia', 'Romania', 'Bulgaria',
         'Serbia', 'Slovakia', 'Slovenia', 'Estonia', 'Latvia', 'Lithuania', 'Belarus', 'Moldova',
         'Albania', 'North Macedonia', 'Montenegro', 'Bosnia & Herzegovina', 'Luxembourg', 'Malta',
-        'Monaco', 'Andorra', 'San Marino', 'Liechtenstein', 'Vatican City',
+        'Monaco', 'Andorra', 'San Marino', 'Liechtenstein', 'Vatican City', 'Türkiye', 'Russia',
       ],
     },
     {
@@ -26,7 +26,7 @@
         'Singapore', 'Nepal', 'Mongolia', 'North Korea', 'Bangladesh', 'Afghanistan', 'Sri Lanka',
         'Qatar', 'Jordan', 'Lebanon', 'Syria', 'Cambodia', 'Laos', 'Myanmar', 'Kuwait', 'Oman',
         'Yemen', 'Bahrain', 'Bhutan', 'Maldives', 'Brunei', 'Uzbekistan', 'Kyrgyzstan', 'Tajikistan',
-        'Turkmenistan', 'Timor-Leste',
+        'Turkmenistan', 'Timor-Leste', 'Türkiye', 'Russia', 'Kazakhstan', 'Egypt',
       ],
     },
     {
